@@ -10,7 +10,7 @@ class CachorroController{
       res.status(200).json(cachorros)
     } catch (error) {
       res.status(500).json({
-        error: "Houve um erro ao acessar cachorros"
+        error: "Houve um erro no servidor ao acessar 'cachorros', tente novamente mais tarde."
       })
     }
   }
@@ -30,7 +30,7 @@ class CachorroController{
       })
     } catch (error) {
       res.status(500).json({
-        error: "Ocorreu um erro no servidor!"
+        error: "Houve um erro no servidor ao acessar 'cachorros', tente novamente mais tarde."
       })
     }
   }
@@ -60,7 +60,7 @@ class CachorroController{
       
     } catch (error) {
       res.status(400).json({
-        error: "Ocorreu um erro no servidor!"
+        error: "Houve um erro no servidor ao acessar 'cachorros', tente novamente mais tarde."
       })
     }
   }
@@ -69,7 +69,7 @@ class CachorroController{
     const { id } = req.params
     if(!id){
       return res.status(400).json({
-        error: 'Valores inválidos!s'
+        error: 'Valores inválidos!'
       })
     }
     try {
@@ -87,7 +87,7 @@ class CachorroController{
       })
     } catch (error) {
       res.status(500).json({
-        error: "Ocorreu um erro no servidor!"
+        error: "Houve um erro no servidor ao acessar 'cachorros', tente novamente mais tarde."
       })
     }
   }

@@ -13,15 +13,27 @@ class App{
     this.routes()
   }
 
-  middleware(): void{
+  private middleware(): void{
     this.app.use(express.json())
   }
 
-  routes(): void{
+  private routes(): void{
     this.app.use('/cachorro', cachorroRouter)
+  }
+
+  async startServer(): Promise<number>{
+    const port = Number(process.env.PORT) || 3000
+    this.app.listen(port, () => console.log(`Server is running -> http://localhost:${port}`))
+    return port
+  }
+
+  getServer(){
+    return this.app
   }
 }
 
 const instApp = new App()
-const port = 3000
-instApp.app.listen(port, () => console.log(`Server is running -> http://localhost:${port}`))
+instApp.startServer()
+
+
+export default App
